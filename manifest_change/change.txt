@@ -1,0 +1,1 @@
+mt.exe -manifest temp.manifest -outputresource:RustDropper.exe
