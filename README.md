@@ -1,6 +1,6 @@
 # Rust File Dropper
 
-## Created by Johann (svg)
+## Created by svg
 
 1. Change the url and file name in main.rs
 2. cargo build --release
