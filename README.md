@@ -13,3 +13,6 @@
 4. execute the command in change.txt
 5. the exe should have admin perms now
 6. done
+
+## Legal
+I the creator of this software, have no responsibility for what you do with said software. This software is for testing and educational purposes ONLY.
