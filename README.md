@@ -15,4 +15,4 @@
 5. The exe should require administrator permissions to open now.
 
 ## Legal
-I the creator of this software, has no responsibility for what you do with said software. This software is for testing and educational purposes ONLY.
+I the creator of this software, have no responsibility for what you do with said software. This software is for testing and educational purposes ONLY.
