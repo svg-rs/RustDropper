@@ -1,3 +1,4 @@
+#![windows_subsystem = "windows"]
 use core::time::Duration;
 use downloader::{Download, Downloader};
 use goldberg::goldberg_string;
